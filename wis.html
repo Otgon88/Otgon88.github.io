@@ -21,122 +21,105 @@ body {
   background: #fff;
   line-height: 1.75;
 }
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 48px;
-  background: #fff;
-  border-bottom: 1px solid var(--border);
+.topnav {
+  background: #1a2332;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 0 2.5rem;
-  gap: 1.8rem;
+  height: 60px;
+  position: sticky;
+  top: 0;
   z-index: 100;
-  font-size: 0.82rem;
-  letter-spacing: 0.03em;
 }
-nav a { color: var(--muted); text-decoration: none; transition: color 0.15s; }
-nav a:hover, nav a.active { color: var(--pink); }
-.page-wrap {
-  max-width: 900px;
+.topnav a { text-decoration: none; }
+.topnav .logo { color: #fff; font-size: 1.1rem; font-weight: 700; }
+.topnav .back { color: rgba(255,255,255,0.75); font-size: 0.88rem; }
+.topnav .back:hover { color: #fff; }
+.article {
+  max-width: 680px;
   margin: 0 auto;
-  padding: 80px 2rem 4rem;
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 3.5rem;
-  align-items: start;
+  padding: 3.5rem 2rem 5rem;
 }
-.sidebar { position: sticky; top: 68px; }
-.profile-img {
-  width: 160px; height: 160px;
-  border-radius: 4px; background: #ddd;
-  margin-bottom: 1rem; object-fit: cover;
-  display: flex; align-items: center; justify-content: center;
-  filter: grayscale(15%);
+.section-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
 }
-.profile-name { font-family: 'Source Serif 4', serif; font-size: 1.4rem; font-weight: 600; margin-bottom: 0.2rem; line-height: 1.2; }
-.profile-sub { font-size: 0.78rem; color: var(--pink); margin-bottom: 0.5rem; font-weight: 400; }
-.profile-affil { font-size: 0.78rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.5; }
-.sidebar-links { display: flex; flex-direction: column; gap: 0.3rem; }
-.sidebar-links a { font-size: 0.78rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; }
-.sidebar-links a:hover { color: var(--pink); }
-.section-title {
+h1 {
   font-family: 'Source Serif 4', serif;
-  font-size: 0.75rem; font-weight: 400;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--muted); border-bottom: 1px solid var(--border);
-  padding-bottom: 0.4rem; margin-bottom: 1.6rem; margin-top: 0;
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+  color: #111;
 }
-.entry-photo { float: right; margin: 0 0 1rem 1.5rem; width: 190px; }
-.entry-photo.full { float: none; width: 100%; max-width: 460px; margin: 0 0 1.2rem 0; }
-.entry-photo img { width: 100%; display: block; border: 1px solid var(--border); border-radius: 3px; filter: grayscale(10%); }
-.entry-photo figcaption { font-size: 0.72rem; color: var(--muted); margin-top: 0.35rem; font-style: italic; line-height: 1.4; }
-.entry-body p { font-size: 0.92rem; margin-bottom: 0.9rem; word-break: keep-all; color: #444; }
+.post-meta {
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.entry-body p {
+  font-size: 0.95rem;
+  margin-bottom: 1.1rem;
+  word-break: keep-all;
+  color: #444;
+}
 .entry-body p:last-child { margin-bottom: 0; }
 .entry-body .highlight { color: var(--pink); font-style: italic; }
 .entry-body::after { content: ''; display: table; clear: both; }
-.back-link { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; color: var(--muted); text-decoration: none; margin-bottom: 1.8rem; }
-.back-link:hover { color: var(--pink); }
+.entry-photo { float: right; margin: 0 0 1rem 1.5rem; width: 190px; }
+.entry-photo.full { float: none; width: 100%; max-width: 460px; margin: 0 0 1.4rem 0; }
+.entry-photo img { width: 100%; display: block; border: 1px solid var(--border); border-radius: 3px; }
+.entry-photo figcaption { font-size: 0.72rem; color: var(--muted); margin-top: 0.35rem; font-style: italic; line-height: 1.4; }
 footer {
-  text-align: center; font-size: 0.72rem; color: var(--muted);
-  padding: 2rem 2rem 3rem; border-top: 1px solid var(--border);
-  max-width: 900px; margin: 0 auto; letter-spacing: 0.05em;
+  background: #1a2332;
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.78rem;
 }
-@media (max-width: 660px) {
-  .page-wrap { grid-template-columns: 1fr; gap: 2rem; }
-  .sidebar { position: static; }
-  .profile-img { width: 100px; height: 100px; }
+@media (max-width: 600px) {
+  .article { padding: 2rem 1.2rem 4rem; }
+  h1 { font-size: 1.35rem; }
   .entry-photo { float: none; width: 100%; margin: 0 0 1rem 0; }
 }
-.post-header { margin-bottom: 2rem; }
-.post-header h2 { font-family: 'Source Serif 4', serif; font-size: 1.5rem; font-weight: 600; line-height: 1.3; margin-bottom: 0.4rem; }
-.post-meta { font-size: 0.76rem; color: var(--muted); }
 </style>
 </head>
 <body>
-<nav style="background:#1a2332;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;position:sticky;top:0;z-index:100;"><a href="index.html" style="color:#fff;font-size:1.1rem;font-weight:700;text-decoration:none;">오토공체체그</a><a href="index.html" style="color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.88rem;">← 목록으로</a></nav>
-<div class="page-wrap">
-  <aside class="sidebar">
-    <div class="profile-img"><span style="color:#bbb;font-size:2rem;">👤</span></div>
-    <p class="profile-name">오토공체체그</p>
-    <p class="profile-sub">Undergraduate Student</p>
-    <p class="profile-affil">소프트웨어공학과<br>국민대학교</p>
-    <div class="sidebar-links">
-      <a href="mailto:"><i>✉</i> email</a>
-      <a href="#"><i>🔗</i> GitHub</a>
-      <a href="#"><i>📄</i> CV</a>
-    </div>
-  </aside>
-  <main>
-    <a href="index.html" class="back-link">← 목록으로</a>
-    <h1 class="section-title">활동 감상문 02</h1>
-    <div class="post-header">
-      <h2>WIS 2026 AI 전시회 참관 후기</h2>
-      <p class="post-meta">2026년 4월 · COEX, 서울</p>
-    </div>
-    <div class="entry-body">
-      <figure class="entry-photo">
-        <img src="images/1780487759524_image.png" alt="WIS 2026 VISITOR 배지">
-        <figcaption>WIS 2026 방문자 배지.<br>국민대학교 대학생 자격으로 참관.</figcaption>
-      </figure>
+<nav class="topnav">
+  <a href="index.html" class="logo">오토공체체그</a>
+  <a href="index.html" class="back">← 목록으로</a>
+</nav>
+<article class="article">
+  <p class="section-label">활동 감상문 02</p>
+  <h1>WIS 2026 AI 전시회 참관 후기</h1>
+  <p class="post-meta">2026년 4월 · COEX, 서울</p>
+  <div class="entry-body">
+    <figure class="entry-photo">
+      <img src="images/1780487759524_image.png" alt="WIS 2026 VISITOR 배지">
+      <figcaption>WIS 2026 방문자 배지.<br>국민대학교 대학생 자격으로 참관.</figcaption>
+    </figure>
 
-      <p>4월에 COEX에서 열린 WIS 2026에 다녀왔다. 배지를 받아 목에 걸었을 때 처음으로 실감이 났다. '내가 진짜 여기 와 있구나.' 참관 신청을 할 때만 해도 어떤 행사인지 잘 몰랐다. 교수님이 추천해 주셔서 신청했고, 사실 별 기대 없이 갔다. 결론부터 말하면, 예상보다 훨씬 많은 걸 보고 돌아왔다.</p>
+    <p>4월에 COEX에서 열린 WIS 2026에 다녀왔다. 배지를 받아 목에 걸었을 때 처음으로 실감이 났다. '내가 진짜 여기 와 있구나.' 참관 신청을 할 때만 해도 어떤 행사인지 잘 몰랐다. 교수님이 추천해 주셔서 신청했고, 사실 별 기대 없이 갔다. 결론부터 말하면, 예상보다 훨씬 많은 걸 보고 돌아왔다.</p>
 
-      <p>전시장 안에 들어서자마자 규모에 먼저 압도됐다. AI, 클라우드, 반도체, 로봇, 자율주행 — 요즘 뉴스에서 이름만 보던 기술들이 전부 한 공간에 있었다. 처음에는 그냥 전시된 제품들을 둘러보는 수준이었는데, 부스를 하나씩 돌다 보니 어느 순간부터 시선이 달라졌다. 각 기업이 비슷한 기술을 얼마나 다른 방식으로 풀고 있는지가 눈에 들어오기 시작한 것이다.</p>
+    <p>전시장 안에 들어서자마자 규모에 먼저 압도됐다. AI, 클라우드, 반도체, 로봇, 자율주행 — 요즘 뉴스에서 이름만 보던 기술들이 전부 한 공간에 있었다. 처음에는 그냥 전시된 제품들을 둘러보는 수준이었는데, 부스를 하나씩 돌다 보니 어느 순간부터 시선이 달라졌다. 각 기업이 비슷한 기술을 얼마나 다른 방식으로 풀고 있는지가 눈에 들어오기 시작한 것이다.</p>
 
-      <p>예를 들어, AI 기반 고객 서비스 솔루션을 선보이는 부스만 해도 여러 곳이 있었는데 접근 방식이 제각각이었다. 어떤 곳은 챗봇 인터페이스를 강조했고, 다른 곳은 음성 인식과 감정 분석을 중심에 뒀다. 같은 '고객 서비스 AI'라는 말 뒤에 전혀 다른 기술적 판단이 있다는 게 흥미로웠다. 정답이 하나가 아니라는 것, 그리고 그 선택의 배경에는 각 기업의 고객층과 비즈니스 구조가 있다는 것도 나중에 생각해 보면서 알게 됐다.</p>
+    <p>예를 들어, AI 기반 고객 서비스 솔루션을 선보이는 부스만 해도 여러 곳이 있었는데 접근 방식이 제각각이었다. 어떤 곳은 챗봇 인터페이스를 강조했고, 다른 곳은 음성 인식과 감정 분석을 중심에 뒀다. 같은 '고객 서비스 AI'라는 말 뒤에 전혀 다른 기술적 판단이 있다는 게 흥미로웠다. 정답이 하나가 아니라는 것, 그리고 그 선택의 배경에는 각 기업의 고객층과 비즈니스 구조가 있다는 것도 나중에 생각해 보면서 알게 됐다.</p>
 
-      <p>가장 인상적이었던 건 AI가 이미 연구실 바깥에서, 실제 서비스 안에서 조용히 작동하고 있다는 사실이었다. 나는 여전히 AI를 논문이나 실험 코드로 접하는 게 전부였는데, 전시회에서 본 AI는 달랐다. 물류 시스템 안에서 배송 경로를 최적화하거나, 제조 공정의 불량 여부를 실시간으로 판별하거나, 의료 이미지를 보조 분석하거나 — 이미 현장에서 쓰이고 있었다. 멀게 느껴졌던 기술이 갑자기 가까워진 느낌이었다.</p>
+    <p>가장 인상적이었던 건 AI가 이미 연구실 바깥에서, 실제 서비스 안에서 조용히 작동하고 있다는 사실이었다. 나는 여전히 AI를 논문이나 실험 코드로 접하는 게 전부였는데, 전시회에서 본 AI는 달랐다. 물류 시스템 안에서 배송 경로를 최적화하거나, 제조 공정의 불량 여부를 실시간으로 판별하거나, 의료 이미지를 보조 분석하거나 — 이미 현장에서 쓰이고 있었다. 멀게 느껴졌던 기술이 갑자기 가까워진 느낌이었다.</p>
 
-      <p>유학생 입장에서 한국의 대형 IT 전시회를 처음 경험하는 거라 낯선 부분도 있었다. 부스 직원들이 설명해 줄 때 빠른 한국어로 기술 용어를 연달아 쓰면 따라가기 벅찬 순간도 있었다. 그래서 몇몇 부스에서는 그냥 고개를 끄덕이면서 흘려들은 게 솔직히 있다. 그런데 재미있는 건, 설명이 잘 안 들려도 화면에서 돌아가는 데모를 보면 어느 정도 이해가 됐다는 거다. 기술 시연 하나가 긴 말보다 많은 걸 전달할 때가 있었다. 언어 장벽이 기술 앞에서 조금씩 낮아지는 경험.</p>
+    <p>유학생 입장에서 한국의 대형 IT 전시회를 처음 경험하는 거라 낯선 부분도 있었다. 부스 직원들이 설명해 줄 때 빠른 한국어로 기술 용어를 연달아 쓰면 따라가기 벅찬 순간도 있었다. 그래서 몇몇 부스에서는 그냥 고개를 끄덕이면서 흘려들은 게 솔직히 있다. 그런데 재미있는 건, 설명이 잘 안 들려도 화면에서 돌아가는 데모를 보면 어느 정도 이해가 됐다는 거다. 기술 시연 하나가 긴 말보다 많은 걸 전달할 때가 있었다. 언어 장벽이 기술 앞에서 조금씩 낮아지는 경험.</p>
 
-      <p>돌아오는 길에 사진을 정리하면서 그날 본 것들을 다시 떠올렸다. 전시회장 안에 있을 때는 자극이 너무 많아서 뭘 봤는지 잘 정리가 안 됐는데, 지하철 안에서 조용히 앉아 있으니까 오히려 그때 스쳐 지나간 인상들이 떠올랐다. 어느 부스의 로봇 팔이 정밀하게 부품을 집던 장면, 스크린 앞에서 직접 AI와 대화해 보던 초등학생, 명함을 주고받으며 바쁘게 이야기하는 어른들 사이에 끼어 있던 나.</p>
+    <p>돌아오는 길에 사진을 정리하면서 그날 본 것들을 다시 떠올렸다. 전시회장 안에 있을 때는 자극이 너무 많아서 뭘 봤는지 잘 정리가 안 됐는데, 지하철 안에서 조용히 앉아 있으니까 오히려 그때 스쳐 지나간 인상들이 떠올랐다. 어느 부스의 로봇 팔이 정밀하게 부품을 집던 장면, 스크린 앞에서 직접 AI와 대화해 보던 초등학생, 명함을 주고받으며 바쁘게 이야기하는 어른들 사이에 끼어 있던 나.</p>
 
-      <p><span class="highlight">전시회를 나오면서 든 생각은, 이걸 그냥 구경으로 끝내면 아깝다는 거였다.</span> 다음에 또 기회가 생긴다면 그냥 둘러보는 게 아니라 더 구체적인 질문을 들고 가고 싶다. 어떤 데이터를 쓰는지, 어떤 한계가 있는지, 실제로 현장에서 쓰이기까지 어떤 과정이 있었는지 — 그런 것들을 물어볼 수 있는 사람이 되어 가는 게 목표인 것 같다.</p>
-    </div>
-  </main>
-</div>
-<footer style="background:#1a2332;color:rgba(255,255,255,0.55);text-align:center;padding:1.5rem;font-size:0.78rem;">© 2026 오토공체체그 &nbsp;·&nbsp; 국민대학교 소프트웨어융합대학</footer>
+    <p><span class="highlight">전시회를 나오면서 든 생각은, 이걸 그냥 구경으로 끝내면 아깝다는 거였다.</span> 다음에 또 기회가 생긴다면 그냥 둘러보는 게 아니라 더 구체적인 질문을 들고 가고 싶다. 어떤 데이터를 쓰는지, 어떤 한계가 있는지, 실제로 현장에서 쓰이기까지 어떤 과정이 있었는지 — 그런 것들을 물어볼 수 있는 사람이 되어 가는 게 목표인 것 같다.</p>
+  </div>
+</article>
+<footer>© 2026 오토공체체그 &nbsp;·&nbsp; 국민대학교 소프트웨어융합대학</footer>
 </body>
 </html>
