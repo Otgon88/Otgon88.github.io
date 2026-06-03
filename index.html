@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B. Otgontsetseg</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --navy: #1a2332;
+  --pink: #e75480;
+  --text: #222;
+  --muted: #888;
+  --border: #e8e8e8;
+  --bg: #f5f5f5;
+}
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+  background: #fff;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* ── NAV ── */
+nav {
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-logo {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 0.88rem;
+  padding-bottom: 3px;
+  transition: color 0.15s;
+}
+.nav-links a.active {
+  color: #fff;
+  border-bottom: 2px solid var(--pink);
+}
+.nav-links a:hover { color: #fff; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--navy);
+  color: #fff;
+  text-align: center;
+  padding: 4rem 2rem 5rem;
+}
+.hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  letter-spacing: -0.02em;
+}
+.hero p {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.65);
+  font-weight: 300;
+}
+
+/* ── CARDS SECTION ── */
+.cards-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 5rem;
+}
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+
+/* ── CARD ── */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+}
+.card-thumb {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+  background: #e0e0e0;
+}
+.card-thumb-placeholder {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background: linear-gradient(135deg, #2d5a3d 0%, #1a3a2a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+.card-body { padding: 1.3rem 1.4rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.card-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  margin-bottom: 0.8rem;
+  width: fit-content;
+}
+.tag-blue { background: #e8f0fe; color: #3b5bdb; }
+.tag-green { background: #e6f4ea; color: #2d7a3a; }
+.tag-purple { background: #f3e8ff; color: #7c3aed; }
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+  color: var(--text);
+}
+.card-desc {
+  font-size: 0.83rem;
+  color: #666;
+  line-height: 1.6;
+  flex: 1;
+  margin-bottom: 1rem;
+  word-break: keep-all;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 0.8rem;
+}
+.card-read-more {
+  color: var(--pink);
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.78rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  .cards-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 900px) and (min-width: 701px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">B. Otgontsetseg</a>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>활동 감상문</h1>
+  <p>국민대학교 소프트웨어공학과 · B. Otgontsetseg</p>
+</div>
+
+<section class="cards-section">
+  <div class="cards-grid">
+
+    <!-- 카드 1: 특강 -->
+    <a href="lecture.html" class="card">
+      <div class="card-thumb-placeholder">🎓</div>
+      <div class="card-body">
+        <span class="card-tag tag-blue">특강</span>
+        <h2 class="card-title">삼성전자 임우빈 연구원 특강을 듣고</h2>
+        <p class="card-desc">AI 기반 그래픽스 기술, Optical Flow, DLSS — 그리고 방향을 찾는 이야기</p>
+        <div class="card-footer">
+          <span>2026. 5. 20</span>
+          <span class="card-read-more">Read more →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 카드 2: WIS -->
+    <a href="wis.html" class="card">
+      <img class="card-thumb" src="images/1780487759524_image.png" alt="WIS 2026">
+      <div class="card-body">
+        <span class="card-tag tag-green">전시회</span>
+        <h2 class="card-title">WIS 2026 AI 전시회 참관 후기</h2>
+        <p class="card-desc">COEX에서 만난 한국 IT 산업의 현재</p>
+        <div class="card-footer">
+          <span>2026. 4.</span>
+          <span class="card-read-more">Read more →</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 카드 3: EXPO -->
+    <a href="expo.html" class="card">
+      <img class="card-thumb" src="images/1780487768070_image.png" alt="KMUCS EXPO 2026">
+      <div class="card-body">
+        <span class="card-tag tag-purple">EXPO</span>
+        <h2 class="card-title">KMUCS EXPO 2026 참가 후기</h2>
+        <p class="card-desc">81팀 중 하나로, 부스 앞에 서서 배운 것들</p>
+        <div class="card-footer">
+          <span>2026. 5. 26–29</span>
+          <span class="card-read-more">Read more →</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 B. Otgontsetseg · 국민대학교 소프트웨어융합대학
+</footer>
+
+</body>
+</html>
